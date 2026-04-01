@@ -120,7 +120,7 @@ if git diff --cached --quiet 2>/dev/null; then
   echo "No changes to commit in wang-report"
 else
   git commit -m "Sandbox update: ${FILENAME:-regenerate} — $(date +%Y-%m-%d)"
-  git push origin main 2>/dev/null || git push
+  git push 2>/dev/null || git push --set-upstream origin main
   echo "Pushed wang-report"
 fi
 

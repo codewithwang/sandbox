@@ -1,5 +1,12 @@
 [
   {
+    "file": "pmo-tooling-options.html",
+    "type": "HTML",
+    "project": "Project Management Dashboard Research",
+    "summary": "Unified command center for 40+ team members, 15 work projects, and unlimited personal projects \u2014 with Apple Reminders integration path",
+    "date": "2026-04-02"
+  },
+  {
     "file": "okta-apis.html",
     "type": "HTML",
     "project": "Okta API Dictionary \u2014 Visual Reference",

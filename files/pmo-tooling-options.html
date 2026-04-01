@@ -1,890 +1,99 @@
 <!DOCTYPE html>
-
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project Management Dashboard Research</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700;900&display=swap" rel="stylesheet">
-<style>
-:root {
---bg: #0c0f14;
---surface: #151921;
---surface2: #1c2230;
---border: #2a3040;
---text: #e2e6ee;
---text-dim: #8892a4;
---accent: #5ce0d8;
---accent2: #a78bfa;
---accent3: #f59e0b;
---accent4: #f472b6;
---green: #34d399;
---red: #f87171;
-}
-
+<html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Project Management Dashboard Research</title> <link href=" https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700;900&display=swap" rel="stylesheet"> <style> :root { --bg: #0c0f14; --surface: #151921; --surface2: #1c2230; --border: #2a3040; --text: #e2e6ee; --text-dim: #8892a4; --accent: #5ce0d8; --accent2: #a78bfa; --accent3: #f59e0b; --accent4: #f472b6; --green: #34d399; --red: #f87171; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-font-family: ‘DM Sans’, sans-serif;
-background: var(–bg);
-color: var(–text);
-line-height: 1.6;
-overflow-x: hidden;
-}
-
-.hero {
-padding: 60px 24px 40px;
-text-align: center;
-position: relative;
-overflow: hidden;
-}
-
-.hero::before {
-content: ‘’;
-position: absolute;
-top: -200px; left: 50%; transform: translateX(-50%);
-width: 800px; height: 800px;
-background: radial-gradient(circle, rgba(92,224,216,0.08) 0%, transparent
-70%);
-pointer-events: none;
-}
-
-.hero h1 {
-font-family: ‘Fraunces’, serif;
-font-size: clamp(2rem, 5vw, 3.2rem);
-font-weight: 900;
-letter-spacing: -0.02em;
-background: linear-gradient(135deg, var(–accent), var(–accent2));
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-margin-bottom: 12px;
-}
-
-.hero p {
-color: var(–text-dim);
-font-size: 1.05rem;
-max-width: 600px;
-margin: 0 auto;
-}
-
-.tag {
-display: inline-block;
-padding: 4px 12px;
-border-radius: 999px;
-font-size: 0.75rem;
-font-weight: 600;
-letter-spacing: 0.04em;
-text-transform: uppercase;
-margin-bottom: 16px;
-}
-
-.tag–teal { background: rgba(92,224,216,0.12); color: var(–accent); }
-.tag–purple { background: rgba(167,139,250,0.12); color: var(–accent2); }
-.tag–amber { background: rgba(245,158,11,0.12); color: var(–accent3); }
-.tag–pink { background: rgba(244,114,182,0.12); color: var(–accent4); }
-
+body { font-family: ‘DM Sans’, sans-serif; background: var(–bg); color: var(–text); line-height: 1.6; overflow-x: hidden; }
+.hero { padding: 60px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ‘’; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(92,224,216,0.08) 0%, transparent 70%); pointer-events: none; }
+.hero h1 { font-family: ‘Fraunces’, serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; letter-spacing: -0.02em; background: linear-gradient(135deg, var(–accent), var(–accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 12px; }
+.hero p { color: var(–text-dim); font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
+.tag { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 16px; }
+.tag–teal { background: rgba(92,224,216,0.12); color: var(–accent); } .tag–purple { background: rgba(167,139,250,0.12); color: var(–accent2); } .tag–amber { background: rgba(245,158,11,0.12); color: var(–accent3); } .tag–pink { background: rgba(244,114,182,0.12); color: var(–accent4); }
 .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
-
-/* Section headers */
-.section-header {
-padding: 48px 0 24px;
-}
-
-.section-header h2 {
-font-family: ‘Fraunces’, serif;
-font-size: 1.8rem;
-font-weight: 700;
-color: var(–text);
-margin-bottom: 6px;
-}
-
-.section-header p {
-color: var(–text-dim);
-font-size: 0.95rem;
-}
-
-/* Tool Cards */
-.tool-grid {
-display: flex;
-flex-direction: column;
-gap: 20px;
-}
-
-.tool-card {
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: 16px;
-padding: 28px;
-position: relative;
-transition: border-color 0.3s, transform 0.2s;
-}
-
-.tool-card:hover {
-border-color: var(–accent);
-transform: translateY(-2px);
-}
-
-.tool-card__rank {
-position: absolute;
-top: -12px;
-right: 20px;
-background: var(–surface2);
-border: 1px solid var(–border);
-border-radius: 10px;
-padding: 4px 14px;
-font-family: ‘Fraunces’, serif;
-font-weight: 700;
-font-size: 0.85rem;
-color: var(–accent);
-}
-
-.tool-card h3 {
-font-family: ‘Fraunces’, serif;
-font-size: 1.35rem;
-font-weight: 700;
-margin-bottom: 4px;
-}
-
-.tool-card__subtitle {
-color: var(–text-dim);
-font-size: 0.88rem;
-margin-bottom: 16px;
-}
-
-.tool-card__grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 14px;
-margin-bottom: 18px;
-}
-
-@media (max-width: 600px) {
-.tool-card__grid { grid-template-columns: 1fr; }
-}
-
-.metric {
-background: var(–surface2);
-border-radius: 10px;
-padding: 14px;
-}
-
-.metric__label {
-font-size: 0.72rem;
-text-transform: uppercase;
-letter-spacing: 0.06em;
-color: var(–text-dim);
-margin-bottom: 4px;
-}
-
-.metric__value {
-font-weight: 700;
-font-size: 0.95rem;
-}
-
-.bar-row {
-display: flex;
-align-items: center;
-gap: 10px;
-margin-bottom: 8px;
-}
-
-.bar-label {
-font-size: 0.78rem;
-color: var(–text-dim);
-width: 120px;
-flex-shrink: 0;
-}
-
-.bar-track {
-flex: 1;
-height: 8px;
-background: var(–surface2);
-border-radius: 4px;
-overflow: hidden;
-}
-
-.bar-fill {
-height: 100%;
-border-radius: 4px;
-transition: width 0.8s ease;
-}
-
-.bar-fill–teal { background: linear-gradient(90deg, var(–accent), #3ab0a9);
-}
-.bar-fill–purple { background: linear-gradient(90deg, var(–accent2),
-#8b6fe0); }
-.bar-fill–amber { background: linear-gradient(90deg, var(–accent3),
-#d97706); }
-.bar-fill–pink { background: linear-gradient(90deg, var(–accent4),
-#db2777); }
-
-.bar-score {
-font-size: 0.78rem;
-font-weight: 600;
-width: 28px;
-text-align: right;
-flex-shrink: 0;
-}
-
-.pros-cons {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 14px;
-margin-top: 14px;
-}
-
-@media (max-width: 600px) {
-.pros-cons { grid-template-columns: 1fr; }
-}
-
-.pros-cons__col h4 {
-font-size: 0.78rem;
-text-transform: uppercase;
-letter-spacing: 0.06em;
-margin-bottom: 8px;
-}
-
-.pros-cons__col h4.pro { color: var(–green); }
-.pros-cons__col h4.con { color: var(–red); }
-
-.pros-cons__col li {
-list-style: none;
-font-size: 0.85rem;
-color: var(–text-dim);
-padding: 3px 0;
-padding-left: 16px;
-position: relative;
-}
-
-.pros-cons__col li::before {
-content: ‘’;
-position: absolute;
-left: 0; top: 11px;
-width: 6px; height: 6px;
-border-radius: 50%;
-}
-
-.pros-cons__col.pro-list li::before { background: var(–green); }
-.pros-cons__col.con-list li::before { background: var(–red); }
-
-/* Comparison table */
-.comparison-wrap {
-overflow-x: auto;
-margin: 24px 0;
-border-radius: 16px;
-border: 1px solid var(–border);
-}
-
-table {
-width: 100%;
-border-collapse: collapse;
-min-width: 700px;
-}
-
-th {
-background: var(–surface);
-padding: 14px 16px;
-text-align: left;
-font-size: 0.75rem;
-text-transform: uppercase;
-letter-spacing: 0.06em;
-color: var(–text-dim);
-border-bottom: 1px solid var(–border);
-position: sticky;
-top: 0;
-}
-
-td {
-padding: 12px 16px;
-font-size: 0.88rem;
-border-bottom: 1px solid var(–border);
-background: var(–surface);
-}
-
+/* Section headers */ .section-header { padding: 48px 0 24px; }
+.section-header h2 { font-family: ‘Fraunces’, serif; font-size: 1.8rem; font-weight: 700; color: var(–text); margin-bottom: 6px; }
+.section-header p { color: var(–text-dim); font-size: 0.95rem; }
+/* Tool Cards */ .tool-grid { display: flex; flex-direction: column; gap: 20px; }
+.tool-card { background: var(–surface); border: 1px solid var(–border); border-radius: 16px; padding: 28px; position: relative; transition: border-color 0.3s, transform 0.2s; }
+.tool-card:hover { border-color: var(–accent); transform: translateY(-2px); }
+.tool-card__rank { position: absolute; top: -12px; right: 20px; background: var(–surface2); border: 1px solid var(–border); border-radius: 10px; padding: 4px 14px; font-family: ‘Fraunces’, serif; font-weight: 700; font-size: 0.85rem; color: var(–accent); }
+.tool-card h3 { font-family: ‘Fraunces’, serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 4px; }
+.tool-card__subtitle { color: var(–text-dim); font-size: 0.88rem; margin-bottom: 16px; }
+.tool-card__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
+@media (max-width: 600px) { .tool-card__grid { grid-template-columns: 1fr; } }
+.metric { background: var(–surface2); border-radius: 10px; padding: 14px; }
+.metric__label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(–text-dim); margin-bottom: 4px; }
+.metric__value { font-weight: 700; font-size: 0.95rem; }
+.bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.bar-label { font-size: 0.78rem; color: var(–text-dim); width: 120px; flex-shrink: 0; }
+.bar-track { flex: 1; height: 8px; background: var(–surface2); border-radius: 4px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 4px; transition: width 0.8s ease; }
+.bar-fill–teal { background: linear-gradient(90deg, var(–accent), #3ab0a9); } .bar-fill–purple { background: linear-gradient(90deg, var(–accent2), #8b6fe0); } .bar-fill–amber { background: linear-gradient(90deg, var(–accent3), #d97706); } .bar-fill–pink { background: linear-gradient(90deg, var(–accent4), #db2777); }
+.bar-score { font-size: 0.78rem; font-weight: 600; width: 28px; text-align: right; flex-shrink: 0; }
+.pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+@media (max-width: 600px) { .pros-cons { grid-template-columns: 1fr; } }
+.pros-cons__col h4 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+.pros-cons__col h4.pro { color: var(–green); } .pros-cons__col h4.con { color: var(–red); }
+.pros-cons__col li { list-style: none; font-size: 0.85rem; color: var(–text-dim); padding: 3px 0; padding-left: 16px; position: relative; }
+.pros-cons__col li::before { content: ‘’; position: absolute; left: 0; top: 11px; width: 6px; height: 6px; border-radius: 50%; }
+.pros-cons__col.pro-list li::before { background: var(–green); } .pros-cons__col.con-list li::before { background: var(–red); }
+/* Comparison table */ .comparison-wrap { overflow-x: auto; margin: 24px 0; border-radius: 16px; border: 1px solid var(–border); }
+table { width: 100%; border-collapse: collapse; min-width: 700px; }
+th { background: var(–surface); padding: 14px 16px; text-align: left; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(–text-dim); border-bottom: 1px solid var(–border); position: sticky; top: 0; }
+td { padding: 12px 16px; font-size: 0.88rem; border-bottom: 1px solid var(–border); background: var(–surface); }
 tr:hover td { background: var(–surface2); }
-
-td:first-child {
-font-weight: 600;
-color: var(–accent);
-}
-
-/* Insight cards */
-.insight-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 16px;
-margin: 24px 0;
-}
-
-@media (max-width: 600px) {
-.insight-grid { grid-template-columns: 1fr; }
-}
-
-.insight-card {
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: 14px;
-padding: 24px;
-}
-
-.insight-card h4 {
-font-family: ‘Fraunces’, serif;
-font-size: 1.05rem;
-margin-bottom: 8px;
-}
-
-.insight-card p {
-font-size: 0.88rem;
-color: var(–text-dim);
-}
-
-/* Reminders section */
-.callout {
-background: linear-gradient(135deg, rgba(92,224,216,0.06),
-rgba(167,139,250,0.06));
-border: 1px solid var(–border);
-border-radius: 16px;
-padding: 28px;
-margin: 24px 0;
-}
-
-.callout h3 {
-font-family: ‘Fraunces’, serif;
-font-size: 1.3rem;
-margin-bottom: 10px;
-}
-
-.callout p, .callout li {
-font-size: 0.9rem;
-color: var(–text-dim);
-}
-
-.callout ul {
-list-style: none;
-margin-top: 12px;
-}
-
-.callout li {
-padding: 6px 0 6px 20px;
-position: relative;
-}
-
-.callout li::before {
-content: ‘→’;
-position: absolute;
-left: 0;
-color: var(–accent);
-}
-
-/* Recommendation */
-.rec-section {
-background: var(–surface);
-border: 2px solid var(–accent);
-border-radius: 20px;
-padding: 36px 28px;
-margin: 36px 0;
-text-align: center;
-}
-
-.rec-section h2 {
-font-family: ‘Fraunces’, serif;
-font-size: 1.6rem;
-margin-bottom: 10px;
-}
-
-.rec-section p {
-color: var(–text-dim);
-font-size: 0.95rem;
-max-width: 680px;
-margin: 0 auto 20px;
-}
-
-.rec-tiers {
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-gap: 14px;
-margin-top: 20px;
-text-align: left;
-}
-
-@media (max-width: 700px) {
-.rec-tiers { grid-template-columns: 1fr; }
-}
-
-.rec-tier {
-background: var(–surface2);
-border-radius: 12px;
-padding: 20px;
-border: 1px solid var(–border);
-}
-
-.rec-tier h4 {
-font-family: ‘Fraunces’, serif;
-font-size: 1rem;
-margin-bottom: 6px;
-}
-
-.rec-tier p {
-font-size: 0.82rem;
-color: var(–text-dim);
-margin: 0;
-}
-
-.footer {
-text-align: center;
-padding: 48px 20px;
-color: var(–text-dim);
-font-size: 0.78rem;
-}
-</style>
-
-</head>
-<body>
-
-<div class="hero">
-<span class="tag tag--teal">Research Brief — April 2026</span>
-<h1>Project Management Dashboard Landscape</h1>
-<p>Unified command center for 40+ team members, 15 work projects, and
-unlimited personal projects — with Apple Reminders integration path</p>
-</div>
-
+td:first-child { font-weight: 600; color: var(–accent); }
+/* Insight cards */ .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+@media (max-width: 600px) { .insight-grid { grid-template-columns: 1fr; } }
+.insight-card { background: var(–surface); border: 1px solid var(–border); border-radius: 14px; padding: 24px; }
+.insight-card h4 { font-family: ‘Fraunces’, serif; font-size: 1.05rem; margin-bottom: 8px; }
+.insight-card p { font-size: 0.88rem; color: var(–text-dim); }
+/* Reminders section */ .callout { background: linear-gradient(135deg, rgba(92,224,216,0.06), rgba(167,139,250,0.06)); border: 1px solid var(–border); border-radius: 16px; padding: 28px; margin: 24px 0; }
+.callout h3 { font-family: ‘Fraunces’, serif; font-size: 1.3rem; margin-bottom: 10px; }
+.callout p, .callout li { font-size: 0.9rem; color: var(–text-dim); }
+.callout ul { list-style: none; margin-top: 12px; }
+.callout li { padding: 6px 0 6px 20px; position: relative; }
+.callout li::before { content: ‘→’; position: absolute; left: 0; color: var(–accent); }
+/* Recommendation */ .rec-section { background: var(–surface); border: 2px solid var(–accent); border-radius: 20px; padding: 36px 28px; margin: 36px 0; text-align: center; }
+.rec-section h2 { font-family: ‘Fraunces’, serif; font-size: 1.6rem; margin-bottom: 10px; }
+.rec-section p { color: var(–text-dim); font-size: 0.95rem; max-width: 680px; margin: 0 auto 20px; }
+.rec-tiers { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 20px; text-align: left; }
+@media (max-width: 700px) { .rec-tiers { grid-template-columns: 1fr; } }
+.rec-tier { background: var(–surface2); border-radius: 12px; padding: 20px; border: 1px solid var(–border); }
+.rec-tier h4 { font-family: ‘Fraunces’, serif; font-size: 1rem; margin-bottom: 6px; }
+.rec-tier p { font-size: 0.82rem; color: var(–text-dim); margin: 0; }
+.footer { text-align: center; padding: 48px 20px; color: var(–text-dim); font-size: 0.78rem; } </style>
+</head> <body>
+<div class="hero"> <span class="tag tag--teal">Research Brief — April 2026</span> <h1>Project Management Dashboard Landscape</h1> <p>Unified command center for 40+ team members, 15 work projects, and unlimited personal projects — with Apple Reminders integration path</p> </div>
 <div class="container">
-
 <!-- YOUR REQUIREMENTS -->
-
-<div class="callout">
-<h3>Your Requirements Summary</h3>
-<p>Based on what you've described, here's the profile these tools need to
-fit:</p>
-<ul>
-<li><strong>Scale:</strong> 40+ people across 10–15 active work
-projects</li>
-<li><strong>Personal + Work:</strong> One list that seamlessly crosses
-personal and professional</li>
-<li><strong>Team Tracking:</strong> See what every team member is doing,
-workload balancing</li>
-<li><strong>Data &amp; Output:</strong> Track deliverables, metrics, and
-data outputs per project</li>
-<li><strong>Frictionless:</strong> Natural input, minimal clicks, fast
-traversal across contexts</li>
-<li><strong>Reminders Tie-in:</strong> Sync with Apple Reminders for quick
-capture</li>
-<li><strong>Future Platform:</strong> Eventually build your own — needs
-strong API/extensibility</li>
-</ul>
-</div>
-
+<div class="callout"> <h3>Your Requirements Summary</h3> <p>Based on what you've described, here's the profile these tools need to fit:</p> <ul> <li><strong>Scale:</strong> 40+ people across 10–15 active work projects</li> <li><strong>Personal + Work:</strong> One list that seamlessly crosses personal and professional</li> <li><strong>Team Tracking:</strong> See what every team member is doing, workload balancing</li> <li><strong>Data &amp; Output:</strong> Track deliverables, metrics, and data outputs per project</li> <li><strong>Frictionless:</strong> Natural input, minimal clicks, fast traversal across contexts</li> <li><strong>Reminders Tie-in:</strong> Sync with Apple Reminders for quick capture</li> <li><strong>Future Platform:</strong> Eventually build your own — needs strong API/extensibility</li> </ul> </div>
 <!-- TIER 1: TOP RECOMMENDATIONS -->
-
-<div class="section-header">
-<span class="tag tag--teal">Tier 1</span>
-<h2>Top Contenders for Your Use Case</h2>
-<p>Best fit for unified personal + work management at your scale</p>
-</div>
-
+<div class="section-header"> <span class="tag tag--teal">Tier 1</span> <h2>Top Contenders for Your Use Case</h2> <p>Best fit for unified personal + work management at your scale</p> </div>
 <div class="tool-grid">
-
-```
-<!-- ClickUp -->
-<div class="tool-card">
-<div class="tool-card__rank">#1 Pick</div>
-<h3>ClickUp</h3>
-<div class="tool-card__subtitle">The "one app to replace them all" —
-strongest all-in-one at your scale</div>
-<div class="tool-card__grid">
-<div class="metric">
-<div class="metric__label">Pricing</div>
-<div class="metric__value">$7/user/mo (Unlimited) · $12 (Business)</div>
+``` <!-- ClickUp --> <div class="tool-card"> <div class="tool-card__rank">#1 Pick</div> <h3>ClickUp</h3> <div class="tool-card__subtitle">The "one app to replace them all" — strongest all-in-one at your scale</div> <div class="tool-card__grid"> <div class="metric"> <div class="metric__label">Pricing</div> <div class="metric__value">$7/user/mo (Unlimited) · $12 (Business)</div> </div> <div class="metric"> <div class="metric__label">Ideal Team Size</div> <div class="metric__value">10–100 people</div> </div> <div class="metric"> <div class="metric__label">API Quality</div> <div class="metric__value">Excellent — public REST API + webhooks</div> </div> <div class="metric"> <div class="metric__label">Apple Reminders</div> <div class="metric__value">Via Zapier, Make, or MCP Server</div> </div> </div> <div class="bar-row"><span class="bar-label">Ease of Use</span><div class="bar-track"><div class="bar-fill bar-fill--teal" style="width:65%"></div></div><span class="bar-score">6.5</span></div> <div class="bar-row"><span class="bar-label">Feature Depth</span><div class="bar-track"><div class="bar-fill bar-fill--purple" style="width:95%"></div></div><span class="bar-score">9.5</span></div> <div class="bar-row"><span class="bar-label">Portfolio View</span><div class="bar-track"><div class="bar-fill bar-fill--amber" style="width:90%"></div></div><span class="bar-score">9.0</span></div> <div class="bar-row"><span class="bar-label">Personal + Work</span><div class="bar-track"><div class="bar-fill bar-fill--pink" style="width:85%"></div></div><span class="bar-score">8.5</span></div> <div class="pros-cons"> <div class="pros-cons__col pro-list"> <h4 class="pro">Strengths</h4> <ul> <li>Tasks, docs, goals, chat, time tracking, dashboards in one workspace</li> <li>Personal spaces alongside team spaces — true unified list</li> <li>50+ dashboard widgets, AI Brain assistant ($9/mo add-on)</li> <li>Best value — most features per dollar at any tier</li> <li>Connected Search across Notion, Google Drive, etc.</li> </ul> </div> <div class="pros-cons__col con-list"> <h4 class="con">Trade-offs</h4> <ul> <li>3–4 week setup investment to configure properly</li> <li>Can feel overwhelming — "feature density" is the philosophy</li> <li>Performance can slow with 1000s of tasks on one board</li> <li>Mobile app less polished than desktop experience</li> </ul> </div> </div> </div>
+<!-- Notion --> <div class="tool-card"> <div class="tool-card__rank">#2 Pick</div> <h3>Notion</h3> <div class="tool-card__subtitle">Most flexible — your knowledge base + project tracker + personal system in one</div> <div class="tool-card__grid"> <div class="metric"> <div class="metric__label">Pricing</div> <div class="metric__value">$10/user/mo (Plus) · $15 (Business)</div> </div> <div class="metric"> <div class="metric__label">Ideal Team Size</div> <div class="metric__value">5–200+ (scales well)</div> </div> <div class="metric"> <div class="metric__label">API Quality</div> <div class="metric__value">Excellent — full REST API, well-documented</div> </div> <div class="metric"> <div class="metric__label">Apple Reminders</div> <div class="metric__value">Via Zapier, Make, or custom API bridge</div> </div> </div> <div class="bar-row"><span class="bar-label">Ease of Use</span><div class="bar-track"><div class="bar-fill bar-fill--teal" style="width:80%"></div></div><span class="bar-score">8.0</span></div> <div class="bar-row"><span class="bar-label">Feature Depth</span><div class="bar-track"><div class="bar-fill bar-fill--purple" style="width:75%"></div></div><span class="bar-score">7.5</span></div> <div class="bar-row"><span class="bar-label">Portfolio View</span><div class="bar-track"><div class="bar-fill bar-fill--amber" style="width:60%"></div></div><span class="bar-score">6.0</span></div> <div class="bar-row"><span class="bar-label">Personal + Work</span><div class="bar-track"><div class="bar-fill bar-fill--pink" style="width:95%"></div></div><span class="bar-score">9.5</span></div> <div class="pros-cons"> <div class="pros-cons__col pro-list"> <h4 class="pro">Strengths</h4> <ul> <li>Best personal + work blend — many use it for life OS</li> <li>Database-driven: build exactly the system you want</li> <li>Notion AI finds info across entire workspace</li> <li>Best-in-class documentation alongside tasks</li> <li>Ideal "prototype" for your future custom platform</li> </ul> </div> <div class="pros-cons__col con-list"> <h4 class="con">Trade-offs</h4> <ul> <li>Dashboard/charting is lightweight — no heatmaps or burndowns</li> <li>No native time tracking, resource management, or Gantt</li> <li>Requires significant setup to build a PM system from scratch</li> <li>Not purpose-built for team workload management</li> </ul> </div> </div> </div>
+<!-- Monday.com --> <div class="tool-card"> <div class="tool-card__rank">#3 Pick</div> <h3>Monday.com</h3> <div class="tool-card__subtitle">Most visually intuitive — best dashboards out of the box for leadership visibility</div> <div class="tool-card__grid"> <div class="metric"> <div class="metric__label">Pricing</div> <div class="metric__value">$12/seat/mo (Standard) · $19 (Pro)</div> </div> <div class="metric"> <div class="metric__label">Ideal Team Size</div> <div class="metric__value">15–200+ (min 3 seats)</div> </div> <div class="metric"> <div class="metric__label">API Quality</div> <div class="metric__value">Good — GraphQL API + marketplace</div> </div> <div class="metric"> <div class="metric__label">Apple Reminders</div> <div class="metric__value">Via Zapier or Make automations</div> </div> </div> <div class="bar-row"><span class="bar-label">Ease of Use</span><div class="bar-track"><div class="bar-fill bar-fill--teal" style="width:90%"></div></div><span class="bar-score">9.0</span></div> <div class="bar-row"><span class="bar-label">Feature Depth</span><div class="bar-track"><div class="bar-fill bar-fill--purple" style="width:80%"></div></div><span class="bar-score">8.0</span></div> <div class="bar-row"><span class="bar-label">Portfolio View</span><div class="bar-track"><div class="bar-fill bar-fill--amber" style="width:88%"></div></div><span class="bar-score">8.8</span></div> <div class="bar-row"><span class="bar-label">Personal + Work</span><div class="bar-track"><div class="bar-fill bar-fill--pink" style="width:60%"></div></div><span class="bar-score">6.0</span></div> <div class="pros-cons"> <div class="pros-cons__col pro-list"> <h4 class="pro">Strengths</h4> <ul> <li>Best dashboards and visual reporting of any platform</li> <li>AI agents handle routine tasks and surface risks</li> <li>50+ widget types — Gantt, workload, charts, KPI trackers</li> <li>Fastest team adoption curve — colorful, intuitive UI</li> </ul> </div> <div class="pros-cons__col con-list"> <h4 class="con">Trade-offs</h4> <ul> <li>Weak as a personal task manager — team-first design</li> <li>Cross-board data linking gets messy at 20+ boards</li> <li>Per-seat pricing adds up fast with 40+ people</li> <li>Advanced automations and AI need Pro tier ($19/seat)</li> </ul> </div> </div> </div> ```
 </div>
-<div class="metric">
-<div class="metric__label">Ideal Team Size</div>
-<div class="metric__value">10–100 people</div>
-</div>
-<div class="metric">
-<div class="metric__label">API Quality</div>
-<div class="metric__value">Excellent — public REST API + webhooks</div>
-</div>
-<div class="metric">
-<div class="metric__label">Apple Reminders</div>
-<div class="metric__value">Via Zapier, Make, or MCP Server</div>
-</div>
-</div>
-<div class="bar-row"><span class="bar-label">Ease of Use</span><div class="bar-track"><div class="bar-fill bar-fill--teal" style="width:65%"></div></div><span class="bar-score">6.5</span></div>
-<div class="bar-row"><span class="bar-label">Feature Depth</span><div class="bar-track"><div class="bar-fill bar-fill--purple" style="width:95%"></div></div><span class="bar-score">9.5</span></div>
-<div class="bar-row"><span class="bar-label">Portfolio View</span><div class="bar-track"><div class="bar-fill bar-fill--amber" style="width:90%"></div></div><span class="bar-score">9.0</span></div>
-<div class="bar-row"><span class="bar-label">Personal + Work</span><div class="bar-track"><div class="bar-fill bar-fill--pink" style="width:85%"></div></div><span class="bar-score">8.5</span></div>
-<div class="pros-cons">
-<div class="pros-cons__col pro-list">
-<h4 class="pro">Strengths</h4>
-<ul>
-<li>Tasks, docs, goals, chat, time tracking, dashboards in one
-workspace</li>
-<li>Personal spaces alongside team spaces — true unified list</li>
-<li>50+ dashboard widgets, AI Brain assistant ($9/mo add-on)</li>
-<li>Best value — most features per dollar at any tier</li>
-<li>Connected Search across Notion, Google Drive, etc.</li>
-</ul>
-</div>
-<div class="pros-cons__col con-list">
-<h4 class="con">Trade-offs</h4>
-<ul>
-<li>3–4 week setup investment to configure properly</li>
-<li>Can feel overwhelming — "feature density" is the philosophy</li>
-<li>Performance can slow with 1000s of tasks on one board</li>
-<li>Mobile app less polished than desktop experience</li>
-</ul>
-</div>
-</div>
-</div>
-
-<!-- Notion -->
-<div class="tool-card">
-<div class="tool-card__rank">#2 Pick</div>
-<h3>Notion</h3>
-<div class="tool-card__subtitle">Most flexible — your knowledge base +
-project tracker + personal system in one</div>
-<div class="tool-card__grid">
-<div class="metric">
-<div class="metric__label">Pricing</div>
-<div class="metric__value">$10/user/mo (Plus) · $15 (Business)</div>
-</div>
-<div class="metric">
-<div class="metric__label">Ideal Team Size</div>
-<div class="metric__value">5–200+ (scales well)</div>
-</div>
-<div class="metric">
-<div class="metric__label">API Quality</div>
-<div class="metric__value">Excellent — full REST API, well-documented</div>
-</div>
-<div class="metric">
-<div class="metric__label">Apple Reminders</div>
-<div class="metric__value">Via Zapier, Make, or custom API bridge</div>
-</div>
-</div>
-<div class="bar-row"><span class="bar-label">Ease of Use</span><div class="bar-track"><div class="bar-fill bar-fill--teal" style="width:80%"></div></div><span class="bar-score">8.0</span></div>
-<div class="bar-row"><span class="bar-label">Feature Depth</span><div class="bar-track"><div class="bar-fill bar-fill--purple" style="width:75%"></div></div><span class="bar-score">7.5</span></div>
-<div class="bar-row"><span class="bar-label">Portfolio View</span><div class="bar-track"><div class="bar-fill bar-fill--amber" style="width:60%"></div></div><span class="bar-score">6.0</span></div>
-<div class="bar-row"><span class="bar-label">Personal + Work</span><div class="bar-track"><div class="bar-fill bar-fill--pink" style="width:95%"></div></div><span class="bar-score">9.5</span></div>
-<div class="pros-cons">
-<div class="pros-cons__col pro-list">
-<h4 class="pro">Strengths</h4>
-<ul>
-<li>Best personal + work blend — many use it for life OS</li>
-<li>Database-driven: build exactly the system you want</li>
-<li>Notion AI finds info across entire workspace</li>
-<li>Best-in-class documentation alongside tasks</li>
-<li>Ideal "prototype" for your future custom platform</li>
-</ul>
-</div>
-<div class="pros-cons__col con-list">
-<h4 class="con">Trade-offs</h4>
-<ul>
-<li>Dashboard/charting is lightweight — no heatmaps or burndowns</li>
-<li>No native time tracking, resource management, or Gantt</li>
-<li>Requires significant setup to build a PM system from scratch</li>
-<li>Not purpose-built for team workload management</li>
-</ul>
-</div>
-</div>
-</div>
-
-<!-- Monday.com -->
-<div class="tool-card">
-<div class="tool-card__rank">#3 Pick</div>
-<h3>Monday.com</h3>
-<div class="tool-card__subtitle">Most visually intuitive — best dashboards
-out of the box for leadership visibility</div>
-<div class="tool-card__grid">
-<div class="metric">
-<div class="metric__label">Pricing</div>
-<div class="metric__value">$12/seat/mo (Standard) · $19 (Pro)</div>
-</div>
-<div class="metric">
-<div class="metric__label">Ideal Team Size</div>
-<div class="metric__value">15–200+ (min 3 seats)</div>
-</div>
-<div class="metric">
-<div class="metric__label">API Quality</div>
-<div class="metric__value">Good — GraphQL API + marketplace</div>
-</div>
-<div class="metric">
-<div class="metric__label">Apple Reminders</div>
-<div class="metric__value">Via Zapier or Make automations</div>
-</div>
-</div>
-<div class="bar-row"><span class="bar-label">Ease of Use</span><div class="bar-track"><div class="bar-fill bar-fill--teal" style="width:90%"></div></div><span class="bar-score">9.0</span></div>
-<div class="bar-row"><span class="bar-label">Feature Depth</span><div class="bar-track"><div class="bar-fill bar-fill--purple" style="width:80%"></div></div><span class="bar-score">8.0</span></div>
-<div class="bar-row"><span class="bar-label">Portfolio View</span><div class="bar-track"><div class="bar-fill bar-fill--amber" style="width:88%"></div></div><span class="bar-score">8.8</span></div>
-<div class="bar-row"><span class="bar-label">Personal + Work</span><div class="bar-track"><div class="bar-fill bar-fill--pink" style="width:60%"></div></div><span class="bar-score">6.0</span></div>
-<div class="pros-cons">
-<div class="pros-cons__col pro-list">
-<h4 class="pro">Strengths</h4>
-<ul>
-<li>Best dashboards and visual reporting of any platform</li>
-<li>AI agents handle routine tasks and surface risks</li>
-<li>50+ widget types — Gantt, workload, charts, KPI trackers</li>
-<li>Fastest team adoption curve — colorful, intuitive UI</li>
-</ul>
-</div>
-<div class="pros-cons__col con-list">
-<h4 class="con">Trade-offs</h4>
-<ul>
-<li>Weak as a personal task manager — team-first design</li>
-<li>Cross-board data linking gets messy at 20+ boards</li>
-<li>Per-seat pricing adds up fast with 40+ people</li>
-<li>Advanced automations and AI need Pro tier ($19/seat)</li>
-</ul>
-</div>
-</div>
-</div>
-```
-
-</div>
-
 <!-- TIER 2 -->
-
-<div class="section-header">
-<span class="tag tag--purple">Tier 2</span>
-<h2>Strong Alternatives Worth Evaluating</h2>
-<p>Each excels in a specific dimension of your requirements</p>
-</div>
-
+<div class="section-header"> <span class="tag tag--purple">Tier 2</span> <h2>Strong Alternatives Worth Evaluating</h2> <p>Each excels in a specific dimension of your requirements</p> </div>
 <div class="tool-grid">
-
-```
-<div class="tool-card">
-<h3>Asana</h3>
-<div class="tool-card__subtitle">Best at connecting daily tasks to
-strategic goals — strong for OKR-driven orgs</div>
-<div class="tool-card__grid">
-<div class="metric"><div class="metric__label">Pricing</div><div class="metric__value">$10.99/user/mo (Starter) · $24.99
-(Advanced)</div></div>
-<div class="metric"><div class="metric__label">Best For</div><div class="metric__value">Goal alignment, cross-functional teams</div></div>
+``` <div class="tool-card"> <h3>Asana</h3> <div class="tool-card__subtitle">Best at connecting daily tasks to strategic goals — strong for OKR-driven orgs</div> <div class="tool-card__grid"> <div class="metric"><div class="metric__label">Pricing</div><div class="metric__value">$10.99/user/mo (Starter) · $24.99 (Advanced)</div></div> <div class="metric"><div class="metric__label">Best For</div><div class="metric__value">Goal alignment, cross-functional teams</div></div> </div> <div class="bar-row"><span class="bar-label">Ease of Use</span><div class="bar-track"><div class="bar-fill bar-fill--teal" style="width:85%"></div></div><span class="bar-score">8.5</span></div> <div class="bar-row"><span class="bar-label">Feature Depth</span><div class="bar-track"><div class="bar-fill bar-fill--purple" style="width:82%"></div></div><span class="bar-score">8.2</span></div> <div class="bar-row"><span class="bar-label">Portfolio View</span><div class="bar-track"><div class="bar-fill bar-fill--amber" style="width:85%"></div></div><span class="bar-score">8.5</span></div> <div class="bar-row"><span class="bar-label">Personal + Work</span><div class="bar-track"><div class="bar-fill bar-fill--pink" style="width:55%"></div></div><span class="bar-score">5.5</span></div> </div>
+<div class="tool-card"> <h3>Linear</h3> <div class="tool-card__subtitle">Fastest, most frictionless UX — the gold standard for speed and keyboard-driven flow</div> <div class="tool-card__grid"> <div class="metric"><div class="metric__label">Pricing</div><div class="metric__value">$8/user/mo (Standard) · custom (Enterprise)</div></div> <div class="metric"><div class="metric__label">Best For</div><div class="metric__value">Dev/product teams, speed-obsessed orgs</div></div> </div> <div class="bar-row"><span class="bar-label">Ease of Use</span><div class="bar-track"><div class="bar-fill bar-fill--teal" style="width:95%"></div></div><span class="bar-score">9.5</span></div> <div class="bar-row"><span class="bar-label">Feature Depth</span><div class="bar-track"><div class="bar-fill bar-fill--purple" style="width:65%"></div></div><span class="bar-score">6.5</span></div> <div class="bar-row"><span class="bar-label">Portfolio View</span><div class="bar-track"><div class="bar-fill bar-fill--amber" style="width:55%"></div></div><span class="bar-score">5.5</span></div> <div class="bar-row"><span class="bar-label">Personal + Work</span><div class="bar-track"><div class="bar-fill bar-fill--pink" style="width:45%"></div></div><span class="bar-score">4.5</span></div> </div>
+<div class="tool-card"> <h3>Wrike</h3> <div class="tool-card__subtitle">Best real-time analytics and resource management for complex, cross-functional orgs</div> <div class="tool-card__grid"> <div class="metric"><div class="metric__label">Pricing</div><div class="metric__value">$10/user/mo (Team) · $24.80 (Business)</div></div> <div class="metric"><div class="metric__label">Best For</div><div class="metric__value">Resource-heavy teams, enterprise reporting</div></div> </div> <div class="bar-row"><span class="bar-label">Ease of Use</span><div class="bar-track"><div class="bar-fill bar-fill--teal" style="width:70%"></div></div><span class="bar-score">7.0</span></div> <div class="bar-row"><span class="bar-label">Feature Depth</span><div class="bar-track"><div class="bar-fill bar-fill--purple" style="width:90%"></div></div><span class="bar-score">9.0</span></div> <div class="bar-row"><span class="bar-label">Portfolio View</span><div class="bar-track"><div class="bar-fill bar-fill--amber" style="width:92%"></div></div><span class="bar-score">9.2</span></div> <div class="bar-row"><span class="bar-label">Personal + Work</span><div class="bar-track"><div class="bar-fill bar-fill--pink" style="width:40%"></div></div><span class="bar-score">4.0</span></div> </div>
+<div class="tool-card"> <h3>Plane (Open Source)</h3> <div class="tool-card__subtitle">AI-native, self-hosted — best foundation if you want to build your own platform</div> <div class="tool-card__grid"> <div class="metric"><div class="metric__label">Pricing</div><div class="metric__value">Free (self-hosted) · $4/user/mo (Pro cloud)</div></div> <div class="metric"><div class="metric__label">Best For</div><div class="metric__value">Building custom, self-hosted PM platform</div></div> </div> <div class="bar-row"><span class="bar-label">Ease of Use</span><div class="bar-track"><div class="bar-fill bar-fill--teal" style="width:75%"></div></div><span class="bar-score">7.5</span></div> <div class="bar-row"><span class="bar-label">Feature Depth</span><div class="bar-track"><div class="bar-fill bar-fill--purple" style="width:70%"></div></div><span class="bar-score">7.0</span></div> <div class="bar-row"><span class="bar-label">Portfolio View</span><div class="bar-track"><div class="bar-fill bar-fill--amber" style="width:65%"></div></div><span class="bar-score">6.5</span></div> <div class="bar-row"><span class="bar-label">Personal + Work</span><div class="bar-track"><div class="bar-fill bar-fill--pink" style="width:60%"></div></div><span class="bar-score">6.0</span></div> </div>
+<div class="tool-card"> <h3>Smartsheet</h3> <div class="tool-card__subtitle">Spreadsheet power users — best for PMOs who think in rows, columns, and formulas</div> <div class="tool-card__grid"> <div class="metric"><div class="metric__label">Pricing</div><div class="metric__value">$9/user/mo (Pro) · $19 (Business)</div></div> <div class="metric"><div class="metric__label">Best For</div><div class="metric__value">Large orgs, PMOs, data-heavy reporting</div></div> </div> <div class="bar-row"><span class="bar-label">Ease of Use</span><div class="bar-track"><div class="bar-fill bar-fill--teal" style="width:72%"></div></div><span class="bar-score">7.2</span></div> <div class="bar-row"><span class="bar-label">Feature Depth</span><div class="bar-track"><div class="bar-fill bar-fill--purple" style="width:85%"></div></div><span class="bar-score">8.5</span></div> <div class="bar-row"><span class="bar-label">Portfolio View</span><div class="bar-track"><div class="bar-fill bar-fill--amber" style="width:90%"></div></div><span class="bar-score">9.0</span></div> <div class="bar-row"><span class="bar-label">Personal + Work</span><div class="bar-track"><div class="bar-fill bar-fill--pink" style="width:30%"></div></div><span class="bar-score">3.0</span></div> </div> ```
 </div>
-<div class="bar-row"><span class="bar-label">Ease of Use</span><div class="bar-track"><div class="bar-fill bar-fill--teal" style="width:85%"></div></div><span class="bar-score">8.5</span></div>
-<div class="bar-row"><span class="bar-label">Feature Depth</span><div class="bar-track"><div class="bar-fill bar-fill--purple" style="width:82%"></div></div><span class="bar-score">8.2</span></div>
-<div class="bar-row"><span class="bar-label">Portfolio View</span><div class="bar-track"><div class="bar-fill bar-fill--amber" style="width:85%"></div></div><span class="bar-score">8.5</span></div>
-<div class="bar-row"><span class="bar-label">Personal + Work</span><div class="bar-track"><div class="bar-fill bar-fill--pink" style="width:55%"></div></div><span class="bar-score">5.5</span></div>
-</div>
-
-<div class="tool-card">
-<h3>Linear</h3>
-<div class="tool-card__subtitle">Fastest, most frictionless UX — the gold
-standard for speed and keyboard-driven flow</div>
-<div class="tool-card__grid">
-<div class="metric"><div class="metric__label">Pricing</div><div class="metric__value">$8/user/mo (Standard) · custom
-(Enterprise)</div></div>
-<div class="metric"><div class="metric__label">Best For</div><div class="metric__value">Dev/product teams, speed-obsessed orgs</div></div>
-</div>
-<div class="bar-row"><span class="bar-label">Ease of Use</span><div class="bar-track"><div class="bar-fill bar-fill--teal" style="width:95%"></div></div><span class="bar-score">9.5</span></div>
-<div class="bar-row"><span class="bar-label">Feature Depth</span><div class="bar-track"><div class="bar-fill bar-fill--purple" style="width:65%"></div></div><span class="bar-score">6.5</span></div>
-<div class="bar-row"><span class="bar-label">Portfolio View</span><div class="bar-track"><div class="bar-fill bar-fill--amber" style="width:55%"></div></div><span class="bar-score">5.5</span></div>
-<div class="bar-row"><span class="bar-label">Personal + Work</span><div class="bar-track"><div class="bar-fill bar-fill--pink" style="width:45%"></div></div><span class="bar-score">4.5</span></div>
-</div>
-
-<div class="tool-card">
-<h3>Wrike</h3>
-<div class="tool-card__subtitle">Best real-time analytics and resource
-management for complex, cross-functional orgs</div>
-<div class="tool-card__grid">
-<div class="metric"><div class="metric__label">Pricing</div><div class="metric__value">$10/user/mo (Team) · $24.80 (Business)</div></div>
-<div class="metric"><div class="metric__label">Best For</div><div class="metric__value">Resource-heavy teams, enterprise reporting</div></div>
-</div>
-<div class="bar-row"><span class="bar-label">Ease of Use</span><div class="bar-track"><div class="bar-fill bar-fill--teal" style="width:70%"></div></div><span class="bar-score">7.0</span></div>
-<div class="bar-row"><span class="bar-label">Feature Depth</span><div class="bar-track"><div class="bar-fill bar-fill--purple" style="width:90%"></div></div><span class="bar-score">9.0</span></div>
-<div class="bar-row"><span class="bar-label">Portfolio View</span><div class="bar-track"><div class="bar-fill bar-fill--amber" style="width:92%"></div></div><span class="bar-score">9.2</span></div>
-<div class="bar-row"><span class="bar-label">Personal + Work</span><div class="bar-track"><div class="bar-fill bar-fill--pink" style="width:40%"></div></div><span class="bar-score">4.0</span></div>
-</div>
-
-<div class="tool-card">
-<h3>Plane (Open Source)</h3>
-<div class="tool-card__subtitle">AI-native, self-hosted — best foundation
-if you want to build your own platform</div>
-<div class="tool-card__grid">
-<div class="metric"><div class="metric__label">Pricing</div><div class="metric__value">Free (self-hosted) · $4/user/mo (Pro
-cloud)</div></div>
-<div class="metric"><div class="metric__label">Best For</div><div class="metric__value">Building custom, self-hosted PM platform</div></div>
-</div>
-<div class="bar-row"><span class="bar-label">Ease of Use</span><div class="bar-track"><div class="bar-fill bar-fill--teal" style="width:75%"></div></div><span class="bar-score">7.5</span></div>
-<div class="bar-row"><span class="bar-label">Feature Depth</span><div class="bar-track"><div class="bar-fill bar-fill--purple" style="width:70%"></div></div><span class="bar-score">7.0</span></div>
-<div class="bar-row"><span class="bar-label">Portfolio View</span><div class="bar-track"><div class="bar-fill bar-fill--amber" style="width:65%"></div></div><span class="bar-score">6.5</span></div>
-<div class="bar-row"><span class="bar-label">Personal + Work</span><div class="bar-track"><div class="bar-fill bar-fill--pink" style="width:60%"></div></div><span class="bar-score">6.0</span></div>
-</div>
-
-<div class="tool-card">
-<h3>Smartsheet</h3>
-<div class="tool-card__subtitle">Spreadsheet power users — best for PMOs
-who think in rows, columns, and formulas</div>
-<div class="tool-card__grid">
-<div class="metric"><div class="metric__label">Pricing</div><div class="metric__value">$9/user/mo (Pro) · $19 (Business)</div></div>
-<div class="metric"><div class="metric__label">Best For</div><div class="metric__value">Large orgs, PMOs, data-heavy reporting</div></div>
-</div>
-<div class="bar-row"><span class="bar-label">Ease of Use</span><div class="bar-track"><div class="bar-fill bar-fill--teal" style="width:72%"></div></div><span class="bar-score">7.2</span></div>
-<div class="bar-row"><span class="bar-label">Feature Depth</span><div class="bar-track"><div class="bar-fill bar-fill--purple" style="width:85%"></div></div><span class="bar-score">8.5</span></div>
-<div class="bar-row"><span class="bar-label">Portfolio View</span><div class="bar-track"><div class="bar-fill bar-fill--amber" style="width:90%"></div></div><span class="bar-score">9.0</span></div>
-<div class="bar-row"><span class="bar-label">Personal + Work</span><div class="bar-track"><div class="bar-fill bar-fill--pink" style="width:30%"></div></div><span class="bar-score">3.0</span></div>
-</div>
-```
-
-</div>
-
 <!-- COMPARISON TABLE -->
-
-<div class="section-header">
-<span class="tag tag--amber">Quick Compare</span>
-<h2>Side-by-Side Feature Matrix</h2>
-</div>
-
-<div class="comparison-wrap">
-<table>
-<thead>
-<tr>
-<th>Platform</th>
-<th>Personal + Work</th>
-<th>Team Tracking</th>
-<th>API / Build On</th>
-<th>Reminders Sync</th>
-<th>Price (40 users)</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>ClickUp</td><td>Excellent</td><td>Workload + Goals</td><td>REST API
-+ Webhooks</td><td>Zapier / Make</td><td>~$280–480/mo</td></tr>
-<tr><td>Notion</td><td>Best in class</td><td>Basic views</td><td>Full REST
-API</td><td>Zapier / Make</td><td>~$400–600/mo</td></tr>
-<tr><td>Monday.com</td><td>Weak</td><td>Excellent</td><td>GraphQL
-API</td><td>Zapier / Make</td><td>~$480–760/mo</td></tr>
-<tr><td>Asana</td><td>Weak</td><td>Good + Goals</td><td>REST
-API</td><td>Zapier</td><td>~$440–1000/mo</td></tr>
-<tr><td>Linear</td><td>Minimal</td><td>Cycles only</td><td>GraphQL
-API</td><td>Custom / Zapier</td><td>~$320/mo</td></tr>
-<tr><td>Wrike</td><td>None</td><td>Best resource mgmt</td><td>REST
-API</td><td>Zapier</td><td>~$400–992/mo</td></tr>
-<tr><td>Plane</td><td>Moderate</td><td>Good dashboards</td><td>REST + MCP +
-SDKs</td><td>Custom build</td><td>Free–$160/mo</td></tr>
-<tr><td>Smartsheet</td><td>None</td><td>Strong + DataMesh</td><td>REST
-API</td><td>Zapier</td><td>~$360–760/mo</td></tr>
-</tbody>
-</table>
-</div>
-
+<div class="section-header"> <span class="tag tag--amber">Quick Compare</span> <h2>Side-by-Side Feature Matrix</h2> </div>
+<div class="comparison-wrap"> <table> <thead> <tr> <th>Platform</th> <th>Personal + Work</th> <th>Team Tracking</th> <th>API / Build On</th> <th>Reminders Sync</th> <th>Price (40 users)</th> </tr> </thead> <tbody> <tr><td>ClickUp</td><td>Excellent</td><td>Workload + Goals</td><td>REST API + Webhooks</td><td>Zapier / Make</td><td>~$280–480/mo</td></tr> <tr><td>Notion</td><td>Best in class</td><td>Basic views</td><td>Full REST API</td><td>Zapier / Make</td><td>~$400–600/mo</td></tr> <tr><td>Monday.com</td><td>Weak</td><td>Excellent</td><td>GraphQL API</td><td>Zapier / Make</td><td>~$480–760/mo</td></tr> <tr><td>Asana</td><td>Weak</td><td>Good + Goals</td><td>REST API</td><td>Zapier</td><td>~$440–1000/mo</td></tr> <tr><td>Linear</td><td>Minimal</td><td>Cycles only</td><td>GraphQL API</td><td>Custom / Zapier</td><td>~$320/mo</td></tr> <tr><td>Wrike</td><td>None</td><td>Best resource mgmt</td><td>REST API</td><td>Zapier</td><td>~$400–992/mo</td></tr> <tr><td>Plane</td><td>Moderate</td><td>Good dashboards</td><td>REST + MCP + SDKs</td><td>Custom build</td><td>Free–$160/mo</td></tr> <tr><td>Smartsheet</td><td>None</td><td>Strong + DataMesh</td><td>REST API</td><td>Zapier</td><td>~$360–760/mo</td></tr> </tbody> </table> </div>
 <!-- APPLE REMINDERS INTEGRATION -->
-
-<div class="section-header">
-<span class="tag tag--pink">Integration Path</span>
-<h2>Apple Reminders Connection Options</h2>
-</div>
-
-<div class="insight-grid">
-<div class="insight-card">
-<h4 style="color: var(--accent)">Option 1: Zapier / Make (Easiest)</h4>
-<p>Use IFTTT or Zapier to sync iOS Reminders with your PM tool. When a
-reminder is created, auto-create a task in ClickUp/Notion/Monday.
-Bi-directional sync is limited — mostly one-way from Reminders into the PM
-tool. Takes ~15 minutes to set up.</p>
-</div>
-<div class="insight-card">
-<h4 style="color: var(--accent2)">Option 2: MCP Server (Most Powerful)</h4>
-<p>Apple Reminders MCP servers now exist that let AI assistants (including
-Claude) directly manage your Reminders via AppleScript on macOS. This
-enables an AI agent to read a project brief, create reminders, block
-calendar time, and draft emails — all in one flow. Best path to your future
-custom platform.</p>
-</div>
-<div class="insight-card">
-<h4 style="color: var(--accent3)">Option 3: Apple EventKit API</h4>
-<p>Apple's native EventKit framework provides programmatic access to
-Reminders. If you build a custom macOS/iOS app or bridge, you get full CRUD
-access to reminders — create, read, update, delete, complete. This is the
-most robust native integration path for a custom platform.</p>
-</div>
-<div class="insight-card">
-<h4 style="color: var(--accent4)">Option 4: Shortcuts + Webhook</h4>
-<p>Use Apple Shortcuts to fire a webhook whenever you create or complete a
-reminder. The webhook hits your PM tool's API to mirror the action.
-Lightweight, no third-party service needed, runs natively on iPhone. Good
-interim solution while building something bigger.</p>
-</div>
-</div>
-
+<div class="section-header"> <span class="tag tag--pink">Integration Path</span> <h2>Apple Reminders Connection Options</h2> </div>
+<div class="insight-grid"> <div class="insight-card"> <h4 style="color: var(--accent)">Option 1: Zapier / Make (Easiest)</h4> <p>Use IFTTT or Zapier to sync iOS Reminders with your PM tool. When a reminder is created, auto-create a task in ClickUp/Notion/Monday. Bi-directional sync is limited — mostly one-way from Reminders into the PM tool. Takes ~15 minutes to set up.</p> </div> <div class="insight-card"> <h4 style="color: var(--accent2)">Option 2: MCP Server (Most Powerful)</h4> <p>Apple Reminders MCP servers now exist that let AI assistants (including Claude) directly manage your Reminders via AppleScript on macOS. This enables an AI agent to read a project brief, create reminders, block calendar time, and draft emails — all in one flow. Best path to your future custom platform.</p> </div> <div class="insight-card"> <h4 style="color: var(--accent3)">Option 3: Apple EventKit API</h4> <p>Apple's native EventKit framework provides programmatic access to Reminders. If you build a custom macOS/iOS app or bridge, you get full CRUD access to reminders — create, read, update, delete, complete. This is the most robust native integration path for a custom platform.</p> </div> <div class="insight-card"> <h4 style="color: var(--accent4)">Option 4: Shortcuts + Webhook</h4> <p>Use Apple Shortcuts to fire a webhook whenever you create or complete a reminder. The webhook hits your PM tool's API to mirror the action. Lightweight, no third-party service needed, runs natively on iPhone. Good interim solution while building something bigger.</p> </div> </div>
 <!-- RECOMMENDATION -->
-
-<div class="rec-section">
-<span class="tag tag--teal">Recommendation</span>
-<h2>Prioritized Approach</h2>
-<p>Given your scale (40+ people, 15 projects, personal + work, future
-platform ambitions), here's how I'd sequence the evaluation:</p>
-<div class="rec-tiers">
-<div class="rec-tier" style="border-color: var(--accent);">
-<h4 style="color: var(--accent);">Phase 1 — Start Here</h4>
-<p><strong>ClickUp</strong> as your primary team PM tool. It handles your
-scale, has personal spaces, best feature-to-cost ratio, and strong API for
-future integration. Pair with <strong>Notion</strong> for your personal
-system + knowledge base. Connect them via ClickUp's native Notion
-integration.</p>
-</div>
-<div class="rec-tier" style="border-color: var(--accent2);">
-<h4 style="color: var(--accent2);">Phase 2 — Integrate</h4>
-<p>Wire up <strong>Apple Reminders → ClickUp</strong> via Zapier or
-Shortcuts + Webhook for quick capture. Set up <strong>dashboards</strong>
-for your 15 projects with workload views across all 40 team members. This
-gives you the "one list" experience.</p>
-</div>
-<div class="rec-tier" style="border-color: var(--accent3);">
-<h4 style="color: var(--accent3);">Phase 3 — Build</h4>
-<p>Use <strong>Plane</strong> (open-source) as your codebase foundation, or
-build on top of ClickUp/Notion APIs. Leverage <strong>MCP servers</strong>
-(Reminders, Calendar, Gmail) to create an AI-powered unified command center
-that's truly yours.</p>
-</div>
-</div>
-</div>
-
+<div class="rec-section"> <span class="tag tag--teal">Recommendation</span> <h2>Prioritized Approach</h2> <p>Given your scale (40+ people, 15 projects, personal + work, future platform ambitions), here's how I'd sequence the evaluation:</p> <div class="rec-tiers"> <div class="rec-tier" style="border-color: var(--accent);"> <h4 style="color: var(--accent);">Phase 1 — Start Here</h4> <p><strong>ClickUp</strong> as your primary team PM tool. It handles your scale, has personal spaces, best feature-to-cost ratio, and strong API for future integration. Pair with <strong>Notion</strong> for your personal system + knowledge base. Connect them via ClickUp's native Notion integration.</p> </div> <div class="rec-tier" style="border-color: var(--accent2);"> <h4 style="color: var(--accent2);">Phase 2 — Integrate</h4> <p>Wire up <strong>Apple Reminders → ClickUp</strong> via Zapier or Shortcuts + Webhook for quick capture. Set up <strong>dashboards</strong> for your 15 projects with workload views across all 40 team members. This gives you the "one list" experience.</p> </div> <div class="rec-tier" style="border-color: var(--accent3);"> <h4 style="color: var(--accent3);">Phase 3 — Build</h4> <p>Use <strong>Plane</strong> (open-source) as your codebase foundation, or build on top of ClickUp/Notion APIs. Leverage <strong>MCP servers</strong> (Reminders, Calendar, Gmail) to create an AI-powered unified command center that's truly yours.</p> </div> </div> </div>
 <!-- KEY INSIGHTS -->
-
-<div class="section-header">
-<span class="tag tag--amber">Key Takeaways</span>
-<h2>What the Research Tells Us</h2>
+<div class="section-header"> <span class="tag tag--amber">Key Takeaways</span> <h2>What the Research Tells Us</h2> </div>
+<div class="insight-grid"> <div class="insight-card"> <h4>No single tool does it all perfectly</h4> <p>Every platform makes trade-offs. ClickUp maximizes features but sacrifices simplicity. Notion maximizes flexibility but lacks enterprise dashboards. Monday maximizes visual clarity but is weak for personal use. The best approach is a small stack of 2 tools, not one monolith.</p> </div> <div class="insight-card"> <h4>The "frictionless" factor matters most</h4> <p>Linear proved that speed and keyboard shortcuts drive adoption more than feature count. Whatever you choose, the tool your team actually uses beats the tool with the most features. Prioritize low-friction input and fast navigation.</p> </div> <div class="insight-card"> <h4>AI is the differentiator in 2026</h4> <p>ClickUp Brain, Monday AI agents, Notion AI, and Linear Agent are all shipping AI that summarizes projects, surfaces risks, and automates routine updates. This is where the space is moving fastest — and where a custom platform could leapfrog existing tools.</p> </div> <div class="insight-card"> <h4>MCP is the bridge to "build your own"</h4> <p>Model Context Protocol servers for Reminders, Calendar, Gmail, and Slack mean an AI agent can orchestrate across all your tools. This is the architectural foundation for the unified platform you want to build — composable, cross-app, and AI-powered.</p> </div> </div>
+<div class="footer"> Research compiled April 2026 · Sources include Smartsheet, Monday.com, ClickUp, Wrike, Linear, Plane, The Digital Project Manager, Toolradar, ProofHub, and others </div>
 </div>
-
-<div class="insight-grid">
-<div class="insight-card">
-<h4>No single tool does it all perfectly</h4>
-<p>Every platform makes trade-offs. ClickUp maximizes features but
-sacrifices simplicity. Notion maximizes flexibility but lacks enterprise
-dashboards. Monday maximizes visual clarity but is weak for personal use.
-The best approach is a small stack of 2 tools, not one monolith.</p>
-</div>
-<div class="insight-card">
-<h4>The "frictionless" factor matters most</h4>
-<p>Linear proved that speed and keyboard shortcuts drive adoption more than
-feature count. Whatever you choose, the tool your team actually uses beats
-the tool with the most features. Prioritize low-friction input and fast
-navigation.</p>
-</div>
-<div class="insight-card">
-<h4>AI is the differentiator in 2026</h4>
-<p>ClickUp Brain, Monday AI agents, Notion AI, and Linear Agent are all
-shipping AI that summarizes projects, surfaces risks, and automates routine
-updates. This is where the space is moving fastest — and where a custom
-platform could leapfrog existing tools.</p>
-</div>
-<div class="insight-card">
-<h4>MCP is the bridge to "build your own"</h4>
-<p>Model Context Protocol servers for Reminders, Calendar, Gmail, and Slack
-mean an AI agent can orchestrate across all your tools. This is the
-architectural foundation for the unified platform you want to build —
-composable, cross-app, and AI-powered.</p>
-</div>
-</div>
-
-<div class="footer">
-Research compiled April 2026 · Sources include Smartsheet, Monday.com,
-ClickUp, Wrike, Linear, Plane, The Digital Project Manager, Toolradar,
-ProofHub, and others
-</div>
-
-</div>
-
-</body>
-</html>
+</body> </html>

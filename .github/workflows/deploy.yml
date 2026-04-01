@@ -1,0 +1,107 @@
+name: Deploy Sandbox to Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate index.html from manifest
+        run: |
+          mkdir -p _site
+          # Copy all HTML files from files/ to _site/
+          if ls files/*.html 1>/dev/null 2>&1; then
+            cp files/*.html _site/
+          fi
+
+          # Read manifest and generate index
+          TOTAL=$(jq length manifest.json)
+
+          cat > _site/index.html <<'HEADER'
+          <!DOCTYPE html>
+          <html>
+          <head>
+          <title>Sandbox — Visualization Index</title>
+          <style>
+            body { background: white; font-family: Times New Roman, serif; margin: 40px; }
+            h1 { font-size: 1.4em; }
+            table { border-collapse: collapse; width: 100%; }
+            th, td { border: 1px solid black; padding: 4px 8px; text-align: left; vertical-align: top; }
+            th { background: #ddd; }
+            a { color: blue; }
+            .footer { margin-top: 20px; font-size: 0.85em; color: #555; }
+          </style>
+          </head>
+          <body>
+          <h1>Sandbox &mdash; Visualization Index</h1>
+          HEADER
+
+          if [ "$TOTAL" -eq 0 ]; then
+            echo '<p>No files published yet.</p>' >> _site/index.html
+          else
+            cat >> _site/index.html <<'TABLE_HEAD'
+          <table>
+            <tr>
+              <th>#</th>
+              <th>File</th>
+              <th>Type</th>
+              <th>Project/Origin</th>
+              <th>Summary</th>
+              <th>Date</th>
+            </tr>
+          TABLE_HEAD
+
+            ROW=0
+            jq -c '.[]' manifest.json | while IFS= read -r entry; do
+              ROW=$((ROW + 1))
+              FILE=$(echo "$entry" | jq -r '.file')
+              TYPE=$(echo "$entry" | jq -r '.type')
+              PROJECT=$(echo "$entry" | jq -r '.project')
+              SUMMARY=$(echo "$entry" | jq -r '.summary')
+              DATE=$(echo "$entry" | jq -r '.date')
+
+              cat >> _site/index.html <<ROW_HTML
+            <tr>
+              <td>${ROW}</td>
+              <td><a href="./${FILE}">${FILE}</a></td>
+              <td>${TYPE}</td>
+              <td>${PROJECT}</td>
+              <td>${SUMMARY}</td>
+              <td>${DATE}</td>
+            </tr>
+          ROW_HTML
+            done
+
+            echo '</table>' >> _site/index.html
+          fi
+
+          cat >> _site/index.html <<'FOOTER'
+          <p class="footer">Sandbox &mdash; Files published from Claude sessions</p>
+          </body>
+          </html>
+          FOOTER
+
+          echo "Generated index with $TOTAL entries"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

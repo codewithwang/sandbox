@@ -1,13 +1,5 @@
 [
   {
-    "file": "test-pipeline.html",
-    "type": "HTML",
-    "project": "Pipeline Test",
-    "summary": "End-to-end test of the sandbox publish pipeline",
-    "date": "2026-04",
-    "status": "live"
-  },
-  {
     "file": "ai-security-executive-brief-v5.html",
     "type": "HTML",
     "project": "AI Security Brief (Dispatch)",

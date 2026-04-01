@@ -100,5 +100,5 @@ else
 fi
 
 echo ""
-echo "Done! Will be live at: https://codewithwang.github.io/sandbox/"
-echo "File: https://codewithwang.github.io/sandbox/$FILENAME"
+echo "Done! Will be live at: https://sandbox.wangreport.com/"
+echo "File: https://sandbox.wangreport.com/$FILENAME"

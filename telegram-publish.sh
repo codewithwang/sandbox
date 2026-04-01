@@ -10,7 +10,7 @@
 
 set -euo pipefail
 
-SANDBOX_DIR="/Users/harrywang/.openclaw/sandbox-pages"
+SANDBOX_DIR="/Users/harrywang/.openclaw/sandbox"
 
 # Source telegram-send for notifications
 source /Users/harrywang/.openclaw/telegram-send.sh 2>/dev/null || true

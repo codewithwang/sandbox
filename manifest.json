@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "file": "pipeline-test.html",
+    "type": "HTML",
+    "project": "Pipeline Test",
+    "summary": "End-to-end verification of publish flow",
+    "date": "2026-04-02"
+  }
+]

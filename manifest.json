@@ -1,5 +1,12 @@
 [
   {
+    "file": "okta-apis.html",
+    "type": "HTML",
+    "project": "Okta API Dictionary \u2014 Visual Reference",
+    "summary": "Complete API Reference \u00b7 Visual HTTP Flows \u00b7 Use Case Dictionary \u00b7 AI / MCP / OpenClaw Integration Patterns",
+    "date": "2026-04-02"
+  },
+  {
     "file": "okta-bible-v1.html",
     "type": "HTML",
     "project": "The Okta Visualization Bible \u2014 V2",

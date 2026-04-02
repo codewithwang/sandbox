@@ -1,5 +1,12 @@
 [
   {
+    "file": "taiwan-us-risk-assessment.html",
+    "type": "HTML",
+    "project": "Quant Risk Analysis",
+    "summary": "Your composite risk score of 71/100 places you in the top 5% of risk exposure among Americans living in PRC jurisdiction.",
+    "date": "2026-04-02"
+  },
+  {
     "file": "ai-guidelines.html",
     "type": "HTML",
     "project": "Enterprise AI Governance Guidebook \u2014 Scope Framework",

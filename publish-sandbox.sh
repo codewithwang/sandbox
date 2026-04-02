@@ -83,7 +83,7 @@ if [ "$EXISTS" -gt 0 ]; then
   echo "Updated manifest entry: $FILENAME"
 else
   jq --arg f "$FILENAME" --arg p "$PROJECT" --arg s "$SUMMARY" --arg d "$DATE" \
-    '[{"file": $f, "type": "HTML", "project": $p, "summary": $s, "date": $d}] + .' \
+    '. + [{"file": $f, "type": "HTML", "project": $p, "summary": $s, "date": $d}]' \
     "$MANIFEST" > "$MANIFEST.tmp" && mv "$MANIFEST.tmp" "$MANIFEST"
   echo "Added manifest entry: $FILENAME"
 fi

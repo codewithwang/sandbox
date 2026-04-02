@@ -1,5 +1,12 @@
 [
   {
+    "file": "ai-guidelines.html",
+    "type": "HTML",
+    "project": "Enterprise AI Governance Guidebook \u2014 Scope Framework",
+    "summary": "A modular guidebook structure for operationalizing AI governance across cybersecurity and beyond. Volume 1: AI Cybersecurity is the current engagement",
+    "date": "2026-04-02"
+  },
+  {
     "file": "us-citizen-risk-profile.html",
     "type": "HTML",
     "project": "US Citizen Risk Profile",

@@ -55,8 +55,23 @@ any session (Architect, Forge, or manual fix) can diagnose and repair broken pag
 # Then read the screenshot to check rendering
 ```
 
+## URL-Based Publishing (Preferred — Zero Mangling)
+
+Instead of pasting HTML code into Gmail body, paste a **URL** to the published artifact:
+
+| Source | URL Format | How it works |
+|--------|-----------|-------------|
+| Claude iOS "Publish" | `https://claude.site/artifacts/...` | Processor fetches raw HTML from URL |
+| GitHub Gist | `https://gist.github.com/user/id` | Processor fetches raw gist content |
+
+**Workflow:** Email `wangwithbot@gmail.com` with subject `sandbox: filename` and just the URL in the body.
+The processor detects the URL, fetches the HTML directly (no Gmail encoding), and publishes it.
+
+This completely bypasses all Gmail corruption issues listed above.
+
 ## Root Cause
 
-Gmail is fundamentally unreliable for transporting HTML code. The long-term fix is to
-use GitHub Gist (zero mangling) instead of email. See memory:
+Gmail is fundamentally unreliable for transporting HTML code. URL-based publishing
+(claude.site or gist) is the preferred path. HTML-in-body is the fallback with
+post-processing fixes applied. See memory:
 `~/.claude/projects/-Users-harrywang--openclaw/memory/feedback_gmail_html_transport.md`

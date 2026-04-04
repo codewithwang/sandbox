@@ -9,7 +9,7 @@
   {
     "file": "ai-guidelines.html",
     "type": "HTML",
-    "project": "Enterprise AI Governance Guidebook — Scope Framework",
+    "project": "Enterprise AI Governance Guidebook \u2014 Scope Framework",
     "summary": "A modular guidebook structure for operationalizing AI governance across cybersecurity and beyond. Volume 1: AI Cybersecurity is the current engagement",
     "date": "2026-04-02"
   },
@@ -23,36 +23,36 @@
   {
     "file": "outcome-driven-metrics-workshop.html",
     "type": "HTML",
-    "project": "Outcome-Driven Metrics — Workshop Journey",
-    "summary": "Workshop Visual Guide · Half-Day Format",
+    "project": "Outcome-Driven Metrics \u2014 Workshop Journey",
+    "summary": "Workshop Visual Guide \u00b7 Half-Day Format",
     "date": "2026-04-02"
   },
   {
     "file": "pmo-tooling-options.html",
     "type": "HTML",
     "project": "Project Management Dashboard Research",
-    "summary": "Unified command center for 40+ team members, 15 work projects, and unlimited personal projects — with Apple Reminders integration path",
+    "summary": "Unified command center for 40+ team members, 15 work projects, and unlimited personal projects \u2014 with Apple Reminders integration path",
     "date": "2026-04-02"
   },
   {
     "file": "okta-apis.html",
     "type": "HTML",
-    "project": "Okta API Dictionary — Visual Reference",
-    "summary": "Complete API Reference · Visual HTTP Flows · Use Case Dictionary · AI / MCP / OpenClaw Integration Patterns",
+    "project": "Okta API Dictionary \u2014 Visual Reference",
+    "summary": "Complete API Reference \u00b7 Visual HTTP Flows \u00b7 Use Case Dictionary \u00b7 AI / MCP / OpenClaw Integration Patterns",
     "date": "2026-04-02"
   },
   {
     "file": "okta-bible-v1.html",
     "type": "HTML",
-    "project": "The Okta Visualization Bible — V2",
-    "summary": "Complete Platform Architecture · Visual Data Flows · Best-Practice Auth Patterns · AI/NHI · Zero Trust · Threat Mapping · Compliance",
+    "project": "The Okta Visualization Bible \u2014 V2",
+    "summary": "Complete Platform Architecture \u00b7 Visual Data Flows \u00b7 Best-Practice Auth Patterns \u00b7 AI/NHI \u00b7 Zero Trust \u00b7 Threat Mapping \u00b7 Compliance",
     "date": "2026-04-02"
   },
   {
     "file": "insurance-industry-in-hk-strategy-for-cyber.html",
     "type": "HTML",
-    "project": "HK Insurance Market — Cyber Intelligence Brief",
-    "summary": "HK Insurance Market — Cyber Intelligence Brief",
+    "project": "HK Insurance Market \u2014 Cyber Intelligence Brief",
+    "summary": "HK Insurance Market \u2014 Cyber Intelligence Brief",
     "date": "2026-04-03"
   },
   {
@@ -60,6 +60,13 @@
     "type": "HTML",
     "project": "untitled",
     "summary": "untitled",
+    "date": "2026-04-04"
+  },
+  {
+    "file": "harry-observational-profile.html",
+    "type": "HTML",
+    "project": "Harry \u2014 Profile Scores",
+    "summary": "Observational profile scores and assessments",
     "date": "2026-04-04"
   }
 ]

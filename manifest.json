@@ -89,5 +89,12 @@
     "project": "MTR IAM \u2014 Visual Design Library",
     "summary": "`;// \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550// TAB 1: ORG & TOM// \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550function buildOrg(){  let h = `Organisation",
     "date": "2026-04-09"
+  },
+  {
+    "file": "iam-interview-final.html",
+    "type": "HTML",
+    "project": "MTR IAM \u2014 Complete Crash Course",
+    "summary": "Everything from background context through NHI practitioner depth to interview kill lines. Designed for the full team. Scroll through or tap sections ",
+    "date": "2026-04-09"
   }
 ]

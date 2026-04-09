@@ -82,5 +82,12 @@
     "project": "MTR IAM \u2014 Complete Crash Course",
     "summary": "Everything from industry fundamentals to interview kill lines. Designed for a 30-minute read on your phone. Tap sections to expand.",
     "date": "2026-04-09"
+  },
+  {
+    "file": "it-ot-visuals.html",
+    "type": "HTML",
+    "project": "MTR IAM \u2014 Visual Design Library",
+    "summary": "`;// \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550// TAB 1: ORG & TOM// \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550function buildOrg(){  let h = `Organisation",
+    "date": "2026-04-09"
   }
 ]

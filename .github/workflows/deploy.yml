@@ -30,6 +30,11 @@ jobs:
             cp files/*.html _site/
           fi
 
+          # Copy app directories (multi-file tools) to _site/
+          if [ -d apps ]; then
+            cp -r apps/* _site/
+          fi
+
           # Read manifest and generate index
           TOTAL=$(jq length manifest.json)
 

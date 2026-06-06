@@ -82,5 +82,12 @@
     "project": "Stack Card Game",
     "summary": "Interactive card game for building and scoring a security stack",
     "date": "2026-04-29"
+  },
+  {
+    "file": "cve/",
+    "type": "App",
+    "project": "CVE Intel · APAC FSI + OT lens",
+    "summary": "CVE-centric vuln intelligence weighted to APAC financial-services regulation (HKMA/MAS), OT/ICS exposure, and client vendor footprint; context reconstructed where NVD no longer enriches",
+    "date": "2026-06-06"
   }
 ]
